@@ -1,0 +1,7 @@
+--create BookCopy
+CREATE TABLE dbo.BookCopy
+    (BookCopyID INT IDENTITY PRIMARY KEY,
+    CustomerID INT FOREIGN KEY REFERENCES Customers(CUSTOMERID),
+    ID INT FOREIGN KEY REFERENCES Books(bookID),
+	ReturnDate Date NULL)
+	GO
