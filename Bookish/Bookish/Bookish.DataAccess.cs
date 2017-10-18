@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookish
 {
-    class Program
+    class Bookish
     {
-        static void Main(string[] args)
-        {
-
-
-        }
     }
 }
