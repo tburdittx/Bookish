@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace Bookish
 {
@@ -14,22 +15,21 @@ namespace Bookish
     {
         static void Main(string[] args)
         {
-            
 
-            
+            var booklist = new ExtractSql().ExtractBooks();
 
-            foreach (var Book in books)
+            foreach (var book in booklist)
             {
                 Console.WriteLine(new string('*', 20));
-                Console.WriteLine("\nBook ID: " + Book.bookID);
-                Console.WriteLine("ISBN: " + Book.ISBN);
-                Console.WriteLine("Title: " + Book.Title);
-                Console.WriteLine("Author " + Book.Author);
-                Console.WriteLine("Barcode " + Book.Barcode + "\n");
+                Console.WriteLine("\nBook ID: " + book.bookID);
+                Console.WriteLine("ISBN: " + book.ISBN);
+                Console.WriteLine("Title: " + book.Title);
+                Console.WriteLine("Author " + book.Author);
+                Console.WriteLine("Barcode " + book.Barcode + "\n");
                 Console.WriteLine(new string('*', 20));
             }
 
-            var customers = (List<Customers>)db.Query<Customers>(SqlString1);
+            var customers = new ExtractSql().ExtractCustomers();
 
             foreach (var customer in customers)
             {
@@ -45,18 +45,6 @@ namespace Bookish
             }
             Console.ReadLine();
 
-        }
-
-        private static void ExtractSQL()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void ExtractSQL(out IDbConnection db, out string SqlString, out string SqlString1)
-        {
-            db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-            SqlString = "SELECT TOP 100 [bookID],[ISBN],[Title],[Author],[Barcode] FROM [Books]";
-            SqlString1 = "SELECT TOP 100 [CUSTOMERID],[FirstName],[Surname],[TelephoneNumber],[EmailAddress],[Username],[Password] FROM [Customers]";
         }
     }
 }

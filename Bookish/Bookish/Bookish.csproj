@@ -49,7 +49,7 @@
     <Compile Include="Books.cs" />
     <Compile Include="Bookish.DataAccess.cs" />
     <Compile Include="Customers.cs" />
-    <Compile Include="ExtractSQL.cs" />
+    <Compile Include="ExtractSql.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
