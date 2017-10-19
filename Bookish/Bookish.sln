@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookish", "Bookish\Bookish.csproj", "{CBAE1E5E-CB40-4208-A0FC-D235E506AD00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookish.Web2", "Bookish.Web2\Bookish.Web2.csproj", "{378C6E34-0ECD-4617-A771-1699D4451C57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookish.Web2.Tests", "Bookish.Web2.Tests\Bookish.Web2.Tests.csproj", "{530CB278-8461-4FD0-8668-998B5EA70C44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CBAE1E5E-CB40-4208-A0FC-D235E506AD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBAE1E5E-CB40-4208-A0FC-D235E506AD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBAE1E5E-CB40-4208-A0FC-D235E506AD00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{378C6E34-0ECD-4617-A771-1699D4451C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378C6E34-0ECD-4617-A771-1699D4451C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378C6E34-0ECD-4617-A771-1699D4451C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378C6E34-0ECD-4617-A771-1699D4451C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530CB278-8461-4FD0-8668-998B5EA70C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530CB278-8461-4FD0-8668-998B5EA70C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530CB278-8461-4FD0-8668-998B5EA70C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530CB278-8461-4FD0-8668-998B5EA70C44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
