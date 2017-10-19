@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Bookish
 {
-    public class Customer
+    public class Customers
     {
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int Telephone { get; set; }
-        public string Email { get; set; }
+        public string Surname { get; set; }
+        public int TelephoneNumber { get; set; }
+        public string EmailAddress { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
     }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bookish
 {
-    public class Book
+    public class Books
     {
+        public string bookID { get; set; }
         public int ISBN { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
