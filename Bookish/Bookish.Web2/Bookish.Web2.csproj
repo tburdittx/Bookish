@@ -198,6 +198,9 @@
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookCopiesController.cs" />
+    <Compile Include="Controllers\Books1Controller.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Customer.cs">
@@ -301,6 +304,21 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Books1\Create.cshtml" />
+    <Content Include="Views\Books1\Delete.cshtml" />
+    <Content Include="Views\Books1\Details.cshtml" />
+    <Content Include="Views\Books1\Edit.cshtml" />
+    <Content Include="Views\Books1\Index.cshtml" />
+    <Content Include="Views\BookCopies\Create.cshtml" />
+    <Content Include="Views\BookCopies\Delete.cshtml" />
+    <Content Include="Views\BookCopies\Details.cshtml" />
+    <Content Include="Views\BookCopies\Edit.cshtml" />
+    <Content Include="Views\BookCopies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

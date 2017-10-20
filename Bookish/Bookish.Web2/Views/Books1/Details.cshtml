@@ -1,0 +1,50 @@
+﻿@model Bookish.Web2.Books1
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Books1</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barcode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

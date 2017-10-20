@@ -1,0 +1,66 @@
+﻿@model Bookish.Web2.BookCopy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookCopy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Books1.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Books1.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookCopy1.BookID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookCopy1.BookID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookCopy2.BookID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookCopy2.BookID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Books11.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Books11.ISBN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookCopyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Bookish.Web2.BookCopy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Books1.ISBN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookCopy1.BookID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookCopy2.BookID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Books11.ISBN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Books1.ISBN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookCopy1.BookID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookCopy2.BookID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Books11.ISBN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookCopyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookCopyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookCopyID })
+        </td>
+    </tr>
+}
+
+</table>
