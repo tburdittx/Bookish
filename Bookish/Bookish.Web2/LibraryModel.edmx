@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BookishModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BookCopy">
+          <Key>
+            <PropertyRef Name="BookCopyID" />
+          </Key>
+          <Property Name="BookCopyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="BookID" Type="nchar" MaxLength="10" />
+          <Property Name="ReturnDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Books1">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ISBN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+          <Property Name="Author" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Barcode" Type="int" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CUSTOMERID" />
+          </Key>
+          <Property Name="CUSTOMERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="BookID">
+          <End Role="Books1" Type="Self.Books1" Multiplicity="0..1" />
+          <End Role="BookCopy" Type="Self.BookCopy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books1">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="BookCopy">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookCopy__Custom__46E78A0C">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="BookCopy" Type="Self.BookCopy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="BookCopy">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookCopy_BookCopy">
+          <End Role="BookCopy" Type="Self.BookCopy" Multiplicity="1" />
+          <End Role="BookCopy1" Type="Self.BookCopy" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BookCopy">
+              <PropertyRef Name="BookCopyID" />
+            </Principal>
+            <Dependent Role="BookCopy1">
+              <PropertyRef Name="BookCopyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookCopy_Books1">
+          <End Role="Books1" Type="Self.Books1" Multiplicity="0..1" />
+          <End Role="BookCopy" Type="Self.BookCopy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books1">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="BookCopy">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookishModelStoreContainer">
+          <EntitySet Name="BookCopy" EntityType="Self.BookCopy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Books1" EntityType="Self.Books1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="BookID" Association="Self.BookID">
+            <End Role="Books1" EntitySet="Books1" />
+            <End Role="BookCopy" EntitySet="BookCopy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookCopy__Custom__46E78A0C" Association="Self.FK__BookCopy__Custom__46E78A0C">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BookCopy" EntitySet="BookCopy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookCopy_BookCopy" Association="Self.FK_BookCopy_BookCopy">
+            <End Role="BookCopy" EntitySet="BookCopy" />
+            <End Role="BookCopy1" EntitySet="BookCopy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookCopy_Books1" Association="Self.FK_BookCopy_Books1">
+            <End Role="Books1" EntitySet="Books1" />
+            <End Role="BookCopy" EntitySet="BookCopy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookishModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BookCopy">
+          <Key>
+            <PropertyRef Name="BookCopyID" />
+          </Key>
+          <Property Name="BookCopyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__BookCopy__Custom__46E78A0C" FromRole="BookCopy" ToRole="Customers" />
+          <Property Name="BookID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Books1" Relationship="BookishModel.BookID" FromRole="BookCopy" ToRole="Books1" />
+          <NavigationProperty Name="BookCopy1" Relationship="BookishModel.FK_BookCopy_BookCopy" FromRole="BookCopy" ToRole="BookCopy1" />
+          <NavigationProperty Name="BookCopy2" Relationship="BookishModel.FK_BookCopy_BookCopy" FromRole="BookCopy1" ToRole="BookCopy" />
+          <NavigationProperty Name="Books11" Relationship="BookishModel.FK_BookCopy_Books1" FromRole="BookCopy" ToRole="Books1" />
+        </EntityType>
+        <EntityType Name="Books1">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Barcode" Type="Int32" />
+          <NavigationProperty Name="BookCopies" Relationship="BookishModel.BookID" FromRole="Books1" ToRole="BookCopy" />
+          <NavigationProperty Name="BookCopies1" Relationship="BookishModel.FK_BookCopy_Books1" FromRole="Books1" ToRole="BookCopy" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CUSTOMERID" />
+          </Key>
+          <Property Name="CUSTOMERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BookCopies" Relationship="Self.FK__BookCopy__Custom__46E78A0C" FromRole="Customers" ToRole="BookCopy" />
+        </EntityType>
+        <Association Name="FK__BookCopy__Custom__46E78A0C">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="BookCopy" Type="Self.BookCopy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="BookCopy">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookishEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookCopies" EntityType="Self.BookCopy" />
+          <EntitySet Name="Books1" EntityType="Self.Books1" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <AssociationSet Name="FK__BookCopy__Custom__46E78A0C" Association="Self.FK__BookCopy__Custom__46E78A0C">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BookCopy" EntitySet="BookCopies" />
+          </AssociationSet>
+          <AssociationSet Name="BookID" Association="BookishModel.BookID">
+            <End Role="Books1" EntitySet="Books1" />
+            <End Role="BookCopy" EntitySet="BookCopies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookCopy_BookCopy" Association="BookishModel.FK_BookCopy_BookCopy">
+            <End Role="BookCopy" EntitySet="BookCopies" />
+            <End Role="BookCopy1" EntitySet="BookCopies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookCopy_Books1" Association="BookishModel.FK_BookCopy_Books1">
+            <End Role="Books1" EntitySet="Books1" />
+            <End Role="BookCopy" EntitySet="BookCopies" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="BookID">
+          <End Type="BookishModel.Books1" Role="Books1" Multiplicity="0..1" />
+          <End Type="BookishModel.BookCopy" Role="BookCopy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books1">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="BookCopy">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookCopy_BookCopy">
+          <End Type="BookishModel.BookCopy" Role="BookCopy" Multiplicity="1" />
+          <End Type="BookishModel.BookCopy" Role="BookCopy1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BookCopy">
+              <PropertyRef Name="BookCopyID" />
+            </Principal>
+            <Dependent Role="BookCopy1">
+              <PropertyRef Name="BookCopyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookCopy_Books1">
+          <End Type="BookishModel.Books1" Role="Books1" Multiplicity="0..1" />
+          <End Type="BookishModel.BookCopy" Role="BookCopy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books1">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="BookCopy">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookishModelStoreContainer" CdmEntityContainer="BookishEntities">
+          <EntitySetMapping Name="BookCopies">
+            <EntityTypeMapping TypeName="BookishModel.BookCopy">
+              <MappingFragment StoreEntitySet="BookCopy">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="BookCopyID" ColumnName="BookCopyID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books1">
+            <EntityTypeMapping TypeName="BookishModel.Books1">
+              <MappingFragment StoreEntitySet="Books1">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="BookishModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
