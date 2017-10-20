@@ -1,0 +1,2 @@
+﻿Select * 
+Where Id

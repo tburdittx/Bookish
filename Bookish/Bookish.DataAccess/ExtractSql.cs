@@ -1,11 +1,11 @@
-﻿using Dapper;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using Bookish.DataAccess;
+using Bookish;
+using System.Configuration;
+using Dapper;
 
-namespace Bookish
+namespace Bookish.DataAccess
 {
     public class ExtractSql
     {
