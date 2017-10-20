@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Bookish.Web2.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : Controller
     {
 

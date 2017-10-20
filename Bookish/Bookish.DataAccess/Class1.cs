@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bookish
+namespace Bookish.DataAccess
 {
-    class Bookish
+    public class Class1
     {
-
-
     }
 }
