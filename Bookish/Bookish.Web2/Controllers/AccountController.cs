@@ -12,7 +12,7 @@ using Bookish.Web2.Models;
 
 namespace Bookish.Web2.Controllers
 {
-    [Authorize]
+    
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
