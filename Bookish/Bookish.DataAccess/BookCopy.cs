@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bookish
+﻿namespace Bookish.DataAccess
 {
-    class BookCopy
+    public class BookCopy
     {
         public int BookCopyId { get; set; }
         public string CustomerId { get; set; }
